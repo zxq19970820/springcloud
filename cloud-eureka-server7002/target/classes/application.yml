@@ -1,0 +1,15 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: EUREKA-SERVER702  #命名
+
+eureka:
+  instance:
+    hostname: eureka7002.com     #   注册中心主机名称
+  client:
+    register-with-eureka: false     #是否将自己注册到列表
+    fetch-registry: false    #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:    #将自己的服务注册到这台机器上去，即7001能同步到7002的服务
+      defaultZone: http://eureka7001.com:7001/eureka/

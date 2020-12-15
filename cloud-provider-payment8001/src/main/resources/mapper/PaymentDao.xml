@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.zxq.dao.PaymentDao" >
+
+
+<!-- useGeneratedKeys   在接口映射中添加记录之后将返回主键ID。-->
+    <insert id="create" parameterType="com.zxq.dao.PaymentDao" useGeneratedKeys="true" keyProperty="id">
+        insert into payment(serial)
+        values (#{serial})
+    </insert>
+
+    <resultMap id="BaseResultMap" type="com.zxq.entites.Payment">
+        <id column="id" property="id"/>
+        <result column="serial" property="serial" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getPaymentById" parameterType="long" resultMap="BaseResultMap">
+        select *
+        from payment
+        where id=#{id}
+    </select>
+
+
+</mapper>
